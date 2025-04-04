@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 class DirtyScreenOne extends StatelessWidget {
   const DirtyScreenOne({super.key});
   @override
@@ -8,88 +7,44 @@ class DirtyScreenOne extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Dirty Screen #1"),
       ),
-      body: SingleChildScrollView(
+      body: const SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         child: Column(
           children: [
-            Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  color: Colors.redAccent),
-              margin: const EdgeInsets.all(4),
-              padding: const EdgeInsets.all(16.0),
-              child: const Row(
-                children: [
-                  Icon(Icons.bug_report),
-                  SizedBox(
-                    width: 8,
-                  ),
-                  Text(
-                    'Box #1',
-                    style: TextStyle(fontSize: 20, color: Colors.white),
-                  )
-                ],
-              ),
-            ),
-            Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  color: Colors.redAccent),
-              margin: const EdgeInsets.all(4),
-              padding: const EdgeInsets.all(16.0),
-              child: const Row(
-                children: [
-                  Icon(Icons.bug_report),
-                  SizedBox(
-                    width: 8,
-                  ),
-                  Text(
-                    'Box #2',
-                    style: TextStyle(fontSize: 20, color: Colors.white),
-                  )
-                ],
-              ),
-            ),
-            Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  color: Colors.redAccent),
-              margin: const EdgeInsets.all(4),
-              padding: const EdgeInsets.all(16.0),
-              child: const Row(
-                children: [
-                  Icon(Icons.bug_report),
-                  SizedBox(
-                    width: 8,
-                  ),
-                  Text(
-                    'Box #3',
-                    style: TextStyle(fontSize: 20, color: Colors.white),
-                  )
-                ],
-              ),
-            ),
-            Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  color: Colors.redAccent),
-              margin: const EdgeInsets.all(4),
-              padding: const EdgeInsets.all(16.0),
-              child: const Row(
-                children: [
-                  Icon(Icons.bug_report),
-                  SizedBox(
-                    width: 8,
-                  ),
-                  Text(
-                    'Box #4',
-                    style: TextStyle(fontSize: 20, color: Colors.white),
-                  )
-                ],
-              ),
-            )
+            containerWidget(text1: "Box #1"),
+            containerWidget(text1: "Box #2"),
+            containerWidget(text1: "Box #3"),
+            containerWidget(text1: "Box #4"),
           ],
         ),
+      ),
+    );
+  }
+}
+class containerWidget extends StatelessWidget {
+  //eigenschaften
+  final String text1;
+  //Konstrukt
+  const containerWidget({super.key, required this.text1});
+  //Methoden
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(12), color: Colors.redAccent),
+      margin: const EdgeInsets.all(4),
+      padding: const EdgeInsets.all(16.0),
+      child: Row(
+        children: [
+          const Icon(Icons.bug_report),
+          const SizedBox(
+            width: 8,
+          ),
+          Text(
+            text1,
+            style: const TextStyle(fontSize: 20, color: Colors.white),
+          )
+        ],
       ),
     );
   }
